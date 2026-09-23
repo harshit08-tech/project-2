@@ -120,10 +120,10 @@ with col_chart1:
             textposition='auto',
             textfont=dict(color='#FFFFFF', size=13)
         ))
-        fig.update_layout(
+             fig.update_layout(
             paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
             font=dict(color="#F1F5F9", family="Inter"),
-            xaxis=dict(title="Accuracy (%)", range=[0, 105], gridcolor="#334155", titlefont=dict(color='#CBD5E1')),
+            xaxis=dict(title=dict(text="Accuracy (%)", font=dict(color='#CBD5E1')), range=[0, 105], gridcolor="#334155"),
             yaxis=dict(title="", tickfont=dict(color='#FFFFFF', size=12)),
             margin=dict(l=0, r=0, t=20, b=0),
             height=380
