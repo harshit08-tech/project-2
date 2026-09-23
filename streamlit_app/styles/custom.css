@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #4F46E5;
+  --primary-light: #6366F1;
+  --secondary: #06B6D4;
+  --secondary-light: #22D3EE;
+  --accent: #10B981;
+  --accent-light: #34D399;
+  --danger: #EF4444;
+  --danger-light: #F87171;
+  --warning: #F59E0B;
+  --warning-light: #FBBF24;
+  --background: #0F172A;
+  --surface: #1E293B;
+  --surface-light: #334155;
+  --text: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border: #475569;
+  --success: #10B981;
+}
+
+/* Base Body Styles */
+.stApp {
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  color: #FFFFFF !important;
+}
+
+p, span, label, div {
+  color: var(--text-secondary);
+}
+
+/* Fade-in Animation for Page Content */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.main .block-container {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Disease Cards */
+.disease-card {
+  border-radius: 16px;
+  padding: 24px;
+  color: #FFFFFF !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.disease-card * {
+  color: #FFFFFF !important;
+}
+
+.disease-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+  z-index: 1;
+}
+
+.disease-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.disease-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  z-index: 2;
+  position: relative;
+}
+
+.disease-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.disease-desc {
+  font-size: 0.9rem;
+  color: #F1F5F9 !important;
+  opacity: 0.95;
+  z-index: 2;
+  position: relative;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+/* Metric Cards */
+.metric-card {
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  border-top: 4px solid var(--primary);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+}
+
+.metric-title {
+  font-size: 0.9rem;
+  color: #94A3B8 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+}
+
+/* Animated Disclaimer Banner */
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.disclaimer-banner {
+  background: rgba(239, 68, 68, 0.15);
+  border-left: 5px solid var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  animation: pulse-border 2.5s infinite;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.disclaimer-icon {
+  font-size: 1.8rem;
+}
+
+.disclaimer-text {
+  font-size: 0.95rem;
+  color: #FCA5A5 !important;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.disclaimer-text strong {
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+
+/* Form Inputs Overrides */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input,
+.stSelectbox > div > div > div,
+.stTextArea textarea {
+  background-color: var(--surface) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.95rem !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stNumberInput > div > div > input:focus,
+.stSelectbox > div > div > div:focus,
+.stTextArea textarea:focus {
+  border-color: var(--primary-light) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Dropdown Menu Popover styling (st.selectbox options) */
+[data-baseweb="popover"], [data-baseweb="menu"], ul[role="listbox"] {
+  background-color: #1E293B !important;
+  border: 1px solid #475569 !important;
+  border-radius: 10px !important;
+}
+
+[data-baseweb="popover"] li, [data-baseweb="menu"] div, li[role="option"] {
+  color: #F1F5F9 !important;
+  font-weight: 500 !important;
+}
+
+li[role="option"]:hover, div[role="option"]:hover, [aria-selected="true"] {
+  background-color: #4F46E5 !important;
+  color: #FFFFFF !important;
+}
+
+/* Labels */
+label, .stMarkdown label, [data-testid="stWidgetLabel"] p {
+  color: #CBD5E1 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 8px !important;
+}
+
+/* Buttons — High Contrast & Glossy Gradient */
+button, 
+.stButton > button, 
+.stFormSubmitButton > button,
+button[data-testid="baseButton-primary"],
+button[data-testid="baseButton-secondary"] {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 10px !important;
+  padding: 12px 24px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  width: 100% !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.45) !important;
+  cursor: pointer !important;
+}
+
+/* Force all text inside buttons to be pure bold white */
+button *, 
+.stButton > button *, 
+.stFormSubmitButton > button * {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+button:hover, 
+.stButton > button:hover, 
+.stFormSubmitButton > button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(79, 70, 229, 0.6) !important;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary)) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Hero CTA Start Button */
+a.start-assessment-btn, 
+a.start-assessment-btn:link, 
+a.start-assessment-btn:visited, 
+a.start-assessment-btn:hover, 
+a.start-assessment-btn:active {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4) !important;
+  color: #FFFFFF !important;
+  padding: 16px 36px !important;
+  border-radius: 30px !important;
+  text-decoration: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.5) !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+a.start-assessment-btn:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 14px 30px rgba(6, 182, 212, 0.6) !important;
+  color: #FFFFFF !important;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1, #22D3EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 700;
+}
+
+/* Animated Backgrounds */
+.animated-bg {
+  background: linear-gradient(-45deg, #0F172A, #1E293B, #0F172A, #334155);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sidebar Customization — High Contrast */
+[data-testid="stSidebar"] {
+  background-color: #1E293B !important;
+  border-right: 1px solid #334155 !important;
+}
+
+[data-testid="stSidebar"] * {
+  color: #F1F5F9 !important;
+}
+
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] h4 {
+  color: #FFFFFF !important;
+}
+
+/* Sidebar Nav Items (st.page_link) */
+[data-testid="stSidebarNav"] a, 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  margin-bottom: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-testid="stSidebarNav"] a *, 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"] * {
+  color: #F1F5F9 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+
+[data-testid="stSidebarNav"] a:hover, 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover {
+  background: rgba(79, 70, 229, 0.3) !important;
+  border-color: #6366F1 !important;
+}
+
+[data-testid="stSidebarNav"] a:hover *, 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"]:hover * {
+  color: #FFFFFF !important;
+}
+
+/* Active Nav Link */
+[data-testid="stSidebarNav"] a[aria-current="page"], 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"][aria-current="page"] {
+  background: linear-gradient(135deg, #4F46E5, #6366F1) !important;
+  border-color: #818CF8 !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4) !important;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] *, 
+[data-testid="stSidebar"] [data-testid="stPageLink-NavLink"][aria-current="page"] * {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+/* Sidebar Disclaimer Box */
+.sidebar-disclaimer {
+  margin-top: 20px;
+  padding: 14px;
+  background: rgba(239, 68, 68, 0.18);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #FCA5A5 !important;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+}
+
+[data-testid="stExpander"] summary span {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Team Member Cards */
+.team-member {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+}
+
+.team-member:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: var(--primary-light);
+  transform: translateY(-4px);
+}
+
+.member-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.member-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  margin-bottom: 4px;
+}
+
+.member-role {
+  font-size: 0.9rem;
+  color: #22D3EE !important;
+  font-weight: 600;
+}
+
+/* Prediction Results */
+.result-card {
+  padding: 32px;
+  border-radius: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.result-high {
+  background: rgba(239, 68, 68, 0.15);
+  border: 2px solid var(--danger);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
+}
+
+.result-low {
+  background: rgba(16, 185, 129, 0.15);
+  border: 2px solid var(--success);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+}
+
+.result-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.result-high .result-label { color: #F87171 !important; }
+.result-low .result-label { color: #34D399 !important; }
+
+.confidence-meter {
+  font-size: 1.25rem;
+  color: #E2E8F0 !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  color: #FFFFFF !important;
+}
+
+.page-subtitle {
+  color: #CBD5E1 !important;
+  font-size: 1.15rem;
+}
